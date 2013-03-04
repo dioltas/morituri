@@ -129,7 +129,7 @@ class _CD(logcommand.LogCommand):
         try:
             import cdio
             _, self.program.result.vendor, self.program.result.model, self.program.result.release = \
-                cdio.Device(self.device).get_hwinfo()
+                cdio.Device(str(self.device)).get_hwinfo()
         except ImportError:
             self.stdout.write(
                 'WARNING: pycdio not installed, cannot identify drive\n')
