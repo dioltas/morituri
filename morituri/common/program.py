@@ -264,8 +264,7 @@ class Program(log.Loggable):
         template = re.sub(r'%(\w)', r'%(\1)s', template)
 
         ret = os.path.join(outdir, template % v)
-
-
+        ret = ret.replace(':', ' -')
 
         return ret
 
