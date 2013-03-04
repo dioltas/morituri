@@ -264,8 +264,9 @@ class Program(log.Loggable):
         template = re.sub(r'%(\w)', r'%(\1)s', template)
 
         ret = os.path.join(outdir, template % v)
-
-
+        
+        # remove invalid chars for windows filesystems
+        ret = re.sub(r'[\?\|<>:"]', '', ret)
 
         return ret
 
