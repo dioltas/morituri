@@ -34,7 +34,7 @@ def _listify(listOrString):
 
 def getAllDevicePaths():
     try:
-        return _getAllDevicePathsPyCdio()
+        return [str(dev) for dev in _getAllDevicePathsPyCdio()]
     except ImportError:
         log.info('drive', 'Cannot import pycdio')
         return _getAllDevicePathsStatic()
