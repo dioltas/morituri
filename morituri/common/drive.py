@@ -66,7 +66,7 @@ def getDeviceInfo(path):
     except ImportError:
         return None
 
-    device = cdio.Device(str(path))
+    device = cdio.Device(path)
     ok, vendor, model, release = device.get_hwinfo()
 
     return (vendor, model, release)
